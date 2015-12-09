@@ -22,6 +22,7 @@ import java.util.List;
 public class ContactRepositoryImpl implements ContactRepository {
     @Autowired
     private Environment env;
+
     private List<Contact> source;
     private int idGenerator;
 

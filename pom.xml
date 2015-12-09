@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <org.testng.version>6.8.7</org.testng.version>
         <org.mockito.version>1.9.5</org.mockito.version>
-        <org.springframework.version>4.0.3.RELEASE</org.springframework.version>
+        <org.springframework.version>4.1.5.RELEASE</org.springframework.version>
         <org.springframework.support.version>2.0.6</org.springframework.support.version>
         <org.aspectj.version>1.7.4</org.aspectj.version>
         <org.hibernate.version>3.6.8.Final</org.hibernate.version>

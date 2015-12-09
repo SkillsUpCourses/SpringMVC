@@ -5,6 +5,10 @@ import com.mosiienko.skillsup.config.customize.ProfilingHandlerBeanPostProcessor
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import java.awt.*;
+import java.util.Random;
 
 /**
  * Class {@link AppConfig
@@ -15,14 +19,20 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.mosiienko.skillsup.repositories",
-//        "com.mosiienko.skillsup.config",
-        "com.mosiienko.skillsup.services"
+        "com.mosiienko.skillsup.*"
 }, nameGenerator = CustomBeanNameGenerator.class)
 public class AppConfig {
+
     @Bean
-    public ProfilingHandlerBeanPostProcessor myBean() throws Exception {
+    public ProfilingHandlerBeanPostProcessor profilingHandlerBeanPostProcessor() throws Exception {
         return new ProfilingHandlerBeanPostProcessor();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Color color() {
+        Random random = new Random();
+        return new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
 
 }

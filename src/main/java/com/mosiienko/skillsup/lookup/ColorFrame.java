@@ -1,7 +1,5 @@
 package com.mosiienko.skillsup.lookup;
 
-import org.springframework.beans.factory.annotation.Lookup;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -13,8 +11,7 @@ import java.util.Random;
  * @version 1.0
  * @since 08.12.15
  */
-@org.springframework.stereotype.Component
-public class ColorFrame extends JFrame {
+public abstract class ColorFrame extends JFrame {
 
     public ColorFrame() {
         setSize(200, 200);
@@ -25,7 +22,7 @@ public class ColorFrame extends JFrame {
     public void showOnRandomPlace() {
         Random random = new Random();
         setLocation(random.nextInt(1000), random.nextInt(600));
-        Color color = color();
+        Color color = setColor();
         getContentPane().setBackground(color);
         repaint();
     }
@@ -34,8 +31,5 @@ public class ColorFrame extends JFrame {
      *
      * @return
      */
-    @Lookup()
-    public Color color() {
-        return null;
-    }
+    public abstract Color setColor();
 }

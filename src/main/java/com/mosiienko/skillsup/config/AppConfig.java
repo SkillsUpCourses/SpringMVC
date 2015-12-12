@@ -2,6 +2,7 @@ package com.mosiienko.skillsup.config;
 
 import com.mosiienko.skillsup.config.customize.CustomBeanNameGenerator;
 import com.mosiienko.skillsup.config.customize.ProfilingHandlerBeanPostProcessor;
+import com.mosiienko.skillsup.lookup.ColorFrame;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -34,5 +35,13 @@ public class AppConfig {
         Random random = new Random();
         return new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
-
+    @Bean
+    public ColorFrame colorFrame(){
+        return new ColorFrame() {
+            @Override
+            public Color setColor() {
+                return color();
+            }
+        };
+    }
 }

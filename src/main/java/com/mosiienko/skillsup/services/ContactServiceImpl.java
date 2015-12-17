@@ -1,7 +1,7 @@
 package com.mosiienko.skillsup.services;
 
 import com.mosiienko.skillsup.config.customize.Profiling;
-import com.mosiienko.skillsup.models.Contact;
+import com.mosiienko.skillsup.models.entities.Contact;
 import com.mosiienko.skillsup.repositories.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,8 +40,8 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void cleatAll() {
-        contactRepository.cleatAll();
+    public void clearAll() {
+        contactRepository.clearAll();
     }
 
 }

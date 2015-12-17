@@ -1,4 +1,8 @@
-package com.mosiienko.skillsup.models;
+package com.mosiienko.skillsup.models.entities;
+
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Class {@link Contact
@@ -7,13 +11,24 @@ package com.mosiienko.skillsup.models;
  * @version 1.0
  * @since 02.12.15
  */
+@Table(name = "contacts")
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "getAllContacts", query = "SELECT a FROM Contact a"),
+        @NamedQuery(name = "deleteContactById", query = "DELETE FROM Contact a WHERE a.id = :id")
+})
+public class Contact implements Serializable {
 
-public class Contact {
-
+    @Id
+    @GeneratedValue
     private int id;
+
     private String name;
+
     private String secondName;
+
     private int age;
+
     private String phone;
 
 
@@ -64,7 +79,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return  name +
+        return name +
                 " " + secondName +
                 " " + age +
                 " " + phone +

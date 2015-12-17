@@ -1,13 +1,11 @@
 package com.mosiienko.skillsup.repositories;
 
-import com.mosiienko.skillsup.models.Contact;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
+import com.mosiienko.skillsup.models.entities.Contact;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
@@ -17,47 +15,32 @@ import java.util.List;
  * @version 1.0
  * @since 02.12.15
  */
-@PropertySource("classpath:default_data_of_contacts.properties")
 @Repository
+@Transactional
 public class ContactRepositoryImpl implements ContactRepository {
-    @Autowired
-    private Environment env;
 
-    private List<Contact> source;
-    private int idGenerator;
+    @PersistenceContext
+    private EntityManager entityManager;
+
 
     @Override
     public void add(Contact contact) {
-        contact.setId(idGenerator++);
-        source.add(contact);
+        entityManager.persist(contact);
     }
 
     @Override
     public void delete(Contact contact) {
-        source.remove(contact);
+        entityManager.remove(entityManager.contains(contact) ? contact : entityManager.merge(contact));
     }
 
     @Override
     public List<Contact> getAll() {
-        return source;
+        return entityManager.createNamedQuery("getAllContacts").getResultList();
     }
 
     @Override
-    public void cleatAll() {
-        source.clear();
-        idGenerator = 0;
+    public void clearAll() {
+        entityManager.createQuery("delete from Contact").executeUpdate();
     }
 
-    @PostConstruct
-    private void initSource() {
-        source = new ArrayList<>();
-        String[] idsOfUsersFromProperties = {"alex", "serg", "ira"};
-        for (String id : idsOfUsersFromProperties) {
-            String name = env.getProperty("name." + id);
-            String secondName = env.getProperty("secondname." + id);
-            String age = env.getProperty("age." + id);
-            String phone = env.getProperty("phone." + id);
-            source.add(new Contact().setId(idGenerator++).setName(name).setSecondName(secondName).setAge(Integer.parseInt(age)).setPhone(phone));
-        }
-    }
 }

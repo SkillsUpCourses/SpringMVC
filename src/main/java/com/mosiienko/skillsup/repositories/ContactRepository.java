@@ -1,6 +1,6 @@
 package com.mosiienko.skillsup.repositories;
 
-import com.mosiienko.skillsup.models.Contact;
+import com.mosiienko.skillsup.models.entities.Contact;
 
 import java.util.List;
 
@@ -14,6 +14,6 @@ import java.util.List;
 public interface ContactRepository {
     void add(Contact contact);
     void delete(Contact contact);
-    List<Contact> getAll();
-    void cleatAll();
+    List getAll();
+    void clearAll();
 }

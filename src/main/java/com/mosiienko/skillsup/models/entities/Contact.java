@@ -85,4 +85,29 @@ public class Contact implements Serializable {
                 " " + phone +
                 "\n";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contact contact = (Contact) o;
+
+        if (id != contact.id) return false;
+        if (age != contact.age) return false;
+        if (name != null ? !name.equals(contact.name) : contact.name != null) return false;
+        if (secondName != null ? !secondName.equals(contact.secondName) : contact.secondName != null) return false;
+        return !(phone != null ? !phone.equals(contact.phone) : contact.phone != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        return result;
+    }
 }

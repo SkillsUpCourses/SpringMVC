@@ -2,7 +2,6 @@ package com.mosiienko.skillsup.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
@@ -12,22 +11,18 @@ import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
-import org.springframework.jndi.JndiTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
-
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import static org.hibernate.cfg.Environment.*;
-
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories
@@ -64,6 +59,7 @@ public class PersistenceConfig implements TransactionManagementConfigurer {
         jpaProperties.put(DIALECT, dialect);
         jpaProperties.put(HBM2DDL_AUTO, hbm2ddlAuto);
         jpaProperties.put(SHOW_SQL, true);
+        jpaProperties.put(FORMAT_SQL, true);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }
@@ -88,7 +84,7 @@ public class PersistenceConfig implements TransactionManagementConfigurer {
 
     private void initDataSourceDefaultData(DataSource dataSource) {
         try {
-            Connection connection = null;
+            Connection connection;
             connection = dataSource.getConnection();
             Resource resource = new ClassPathResource("/default_data.sql");
             ScriptUtils.executeSqlScript(connection, resource);

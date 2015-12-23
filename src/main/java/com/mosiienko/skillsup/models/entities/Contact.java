@@ -14,8 +14,8 @@ import java.io.Serializable;
 @Table(name = "contacts")
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "getAllContacts", query = "SELECT a FROM Contact a"),
-        @NamedQuery(name = "deleteContactById", query = "DELETE FROM Contact a WHERE a.id = :id")
+        @NamedQuery(name = "getAll", query = "SELECT a FROM Contact a"),
+        @NamedQuery(name = "deleteById", query = "DELETE FROM Contact a WHERE a.id = :id")
 })
 public class Contact implements Serializable {
 
@@ -77,14 +77,7 @@ public class Contact implements Serializable {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return name +
-                " " + secondName +
-                " " + age +
-                " " + phone +
-                "\n";
-    }
+
 
     @Override
     public boolean equals(Object o) {

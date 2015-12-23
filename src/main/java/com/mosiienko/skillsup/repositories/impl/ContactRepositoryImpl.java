@@ -1,6 +1,8 @@
-package com.mosiienko.skillsup.repositories;
+package com.mosiienko.skillsup.repositories.impl;
 
 import com.mosiienko.skillsup.models.entities.Contact;
+import com.mosiienko.skillsup.repositories.ContactRepository;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,23 +26,32 @@ public class ContactRepositoryImpl implements ContactRepository {
 
 
     @Override
-    public void add(Contact contact) {
+    public void save(Contact contact) {
         entityManager.persist(contact);
     }
 
     @Override
     public void delete(Contact contact) {
+
         entityManager.remove(entityManager.contains(contact) ? contact : entityManager.merge(contact));
     }
 
     @Override
-    public List<Contact> getAll() {
-        return entityManager.createNamedQuery("getAllContacts").getResultList();
+    public List<Contact> selectAll() {
+        return entityManager.createNamedQuery("getAll").getResultList();
     }
 
     @Override
-    public void clearAll() {
-        entityManager.createQuery("delete from Contact").executeUpdate();
+    public void dropTable() {
+        entityManager.createNativeQuery("truncate table contacts").executeUpdate();
+    }
+
+    @Override
+    public Contact selectById(int id) {
+        Session session = (Session)entityManager.getDelegate();
+        Contact contact = (Contact) session.get(Contact.class, id);
+        System.out.println(contact.getClass().getName());
+        return contact;
     }
 
 }

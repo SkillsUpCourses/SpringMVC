@@ -12,8 +12,9 @@ import java.util.List;
  * @since 02.12.15
  */
 public interface ContactRepository {
-    void add(Contact contact);
+    void save(Contact contact);
     void delete(Contact contact);
-    List getAll();
-    void clearAll();
+    List<Contact> selectAll();
+    void dropTable();
+    Contact selectById(int id);
 }

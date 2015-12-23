@@ -18,7 +18,6 @@ import java.util.List;
  * @since 02.12.15
  */
 @Repository
-@Transactional
 public class ContactRepositoryImpl implements ContactRepository {
 
     @PersistenceContext

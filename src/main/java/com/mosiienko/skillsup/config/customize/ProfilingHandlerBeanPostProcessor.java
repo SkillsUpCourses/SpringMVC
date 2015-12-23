@@ -21,7 +21,7 @@ import java.util.Map;
  * @version 1.0
  * @since 07.12.15
  */
-//@Component
+@Component
 public class ProfilingHandlerBeanPostProcessor implements BeanPostProcessor {
     Map<String, Class> classMap = new HashMap<>();
     private ProfilingController profilingController = new ProfilingController();

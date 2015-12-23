@@ -17,15 +17,13 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  */
 @Configuration
 @ComponentScan(basePackages = {
-        "com.mosiienko.skillsup.*"
+        "com.mosiienko.skillsup.config",
+        "com.mosiienko.skillsup.repositories",
+        "com.mosiienko.skillsup.services"
 }, nameGenerator = CustomBeanNameGenerator.class)
 @Import({PersistenceConfig.class})
 public class AppConfig {
 
-    @Bean
-    public ProfilingHandlerBeanPostProcessor profilingHandlerBeanPostProcessor() throws Exception {
-        return new ProfilingHandlerBeanPostProcessor();
-    }
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();

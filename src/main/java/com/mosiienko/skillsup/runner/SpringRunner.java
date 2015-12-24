@@ -21,7 +21,6 @@ public class SpringRunner {
         System.out.println(Arrays.toString(contactService.getAll().toArray()));
         ContactDto contact = contactService.getById(2);
         System.out.println("\nRemoving Irina...\n");
-//            Init bean by name (custom name)
         ContactService contactServiceByName = (ContactService) context.getBean("com.mosiienko.skillsup.services.impl.ContactServiceImplbyRomanMosiienko");
         contactServiceByName.delete(contact);
         System.out.println(Arrays.toString(contactServiceByName.getAll().toArray()));
@@ -29,6 +28,7 @@ public class SpringRunner {
         contactServiceByName.clearAll();
         System.out.println(Arrays.toString(contactServiceByName.getAll().toArray()));
         System.out.println("\nGet by id...\n");
+
     }
 }
 

@@ -42,11 +42,7 @@ public class PersistenceConfig implements TransactionManagementConfigurer {
     private String username;
     @Value("${password}")
     private String password;
-    /**
-     * Configure {@link org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean} instance with sent data from {@link javax.sql.DataSource}
-     *
-     * @return configured {@link org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean} instance
-     */
+
     @Bean
     @Autowired
     @DependsOn("dataSource")

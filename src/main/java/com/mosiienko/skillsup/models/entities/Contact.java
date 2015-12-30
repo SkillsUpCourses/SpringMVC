@@ -15,7 +15,8 @@ import java.io.Serializable;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "getAll", query = "SELECT a FROM Contact a"),
-        @NamedQuery(name = "deleteById", query = "DELETE FROM Contact a WHERE a.id = :id")
+        @NamedQuery(name = "deleteById", query = "DELETE FROM Contact a WHERE a.id = :id"),
+        @NamedQuery(name = "getById", query = "SELECT a FROM Contact a WHERE a.id = :id"),
 })
 public class Contact implements Serializable {
 

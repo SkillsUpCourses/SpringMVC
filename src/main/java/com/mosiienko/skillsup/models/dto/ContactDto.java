@@ -1,5 +1,7 @@
 package com.mosiienko.skillsup.models.dto;
 
+import java.io.Serializable;
+
 /**
  * Class {@link ContactDto
  *
@@ -7,7 +9,7 @@ package com.mosiienko.skillsup.models.dto;
  * @version 1.0
  * @since 23.12.15
  */
-public class ContactDto {
+public class ContactDto implements Serializable {
 
     private String name;
 
@@ -24,6 +26,13 @@ public class ContactDto {
         this.secondName = secondName;
         this.age = age;
         this.phone = phone;
+        this.id = id;
+    }
+
+    public ContactDto() {
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 

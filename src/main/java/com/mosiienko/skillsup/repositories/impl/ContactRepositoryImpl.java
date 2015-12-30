@@ -30,9 +30,8 @@ public class ContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
-    public void delete(Contact contact) {
-
-        entityManager.remove(entityManager.contains(contact) ? contact : entityManager.merge(contact));
+    public void delete(int id) {
+        entityManager.createNamedQuery("deleteById").setParameter("id", id).executeUpdate();
     }
 
     @Override
@@ -47,10 +46,7 @@ public class ContactRepositoryImpl implements ContactRepository {
 
     @Override
     public Contact selectById(int id) {
-        Session session = (Session)entityManager.getDelegate();
-        Contact contact = (Contact) session.get(Contact.class, id);
-        System.out.println(contact.getClass().getName());
-        return contact;
+        return (Contact) entityManager.createNamedQuery("getById").setParameter("id", id).getSingleResult();
     }
 
 }

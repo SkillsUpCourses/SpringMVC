@@ -15,20 +15,20 @@ import java.util.Arrays;
  * @since 02.12.15
  */
 public class SpringRunner {
-    public static void main(String[] args) throws InterruptedException {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        ContactService contactService = context.getBean(ContactService.class);
-        System.out.println(Arrays.toString(contactService.getAll().toArray()));
-        ContactDto contact = contactService.getById(2);
-        System.out.println("\nRemoving Irina...\n");
-        ContactService contactServiceByName = (ContactService) context.getBean("com.mosiienko.skillsup.services.impl.ContactServiceImplbyRomanMosiienko");
-        contactServiceByName.delete(contact);
-        System.out.println(Arrays.toString(contactServiceByName.getAll().toArray()));
-        System.out.println("\nClear all contacts...\n");
-        contactServiceByName.clearAll();
-        System.out.println(Arrays.toString(contactServiceByName.getAll().toArray()));
-        System.out.println("\nGet by id...\n");
-
-    }
+//    public static void main(String[] args) throws InterruptedException {
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+//        ContactService contactService = context.getBean(ContactService.class);
+//        System.out.println(Arrays.toString(contactService.getAll().toArray()));
+//        ContactDto contact = contactService.getById(2);
+//        System.out.println("\nRemoving Irina...\n");
+//        ContactService contactServiceByName = (ContactService) context.getBean("com.mosiienko.skillsup.services.impl.ContactServiceImplbyRomanMosiienko");
+//        contactServiceByName.delete(contact);
+//        System.out.println(Arrays.toString(contactServiceByName.getAll().toArray()));
+//        System.out.println("\nClear all contacts...\n");
+//        contactServiceByName.clearAll();
+//        System.out.println(Arrays.toString(contactServiceByName.getAll().toArray()));
+//        System.out.println("\nGet by id...\n");
+//
+//    }
 }
 

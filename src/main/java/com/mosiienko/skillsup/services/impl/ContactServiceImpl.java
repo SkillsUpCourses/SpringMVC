@@ -43,9 +43,8 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void delete(ContactDto contactDto) {
-        Contact contact = new Contact().setName(contactDto.getName()).setAge(contactDto.getAge()).setPhone(contactDto.getPhone()).setSecondName(contactDto.getSecondName()).setId(contactDto.getId());
-        contactRepository.delete(contact);
+    public void delete(int id) {
+        contactRepository.delete(id);
     }
 
 

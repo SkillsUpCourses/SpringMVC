@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ContactRepository {
     void save(Contact contact);
-    void delete(Contact contact);
+    void delete(int id);
     List<Contact> selectAll();
     void dropTable();
     Contact selectById(int id);

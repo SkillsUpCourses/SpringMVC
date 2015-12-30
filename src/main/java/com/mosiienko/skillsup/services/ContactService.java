@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ContactService {
     void add(ContactDto contactDto);
-    void delete(ContactDto contactDto);
+    void delete(int id);
     List<ContactDto> getAll();
     void clearAll();
     ContactDto getById(int id);

@@ -1,27 +1,18 @@
 package com.ksu.skillsup.controllers;
 
 import com.ksu.skillsup.models.Contact;
-import com.ksu.skillsup.entities.MappedContact;
 import com.ksu.skillsup.service.ContactService;
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import javax.validation.Valid;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 
 
-/**
- * Class {@link ContactController}
- *
- * @author RomanMosiienko
- * @version 1.0
- * @since 30.12.15
- */
+
 @RequestMapping(value = "/contacts")
 @Controller
 public class ContactController {

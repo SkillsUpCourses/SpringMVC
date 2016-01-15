@@ -1,8 +1,6 @@
 package com.ksu.skillsup.config;
 
 
-import com.ksu.skillsup.config.AppConfig;
-import com.ksu.skillsup.config.WebMvcConfig;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;

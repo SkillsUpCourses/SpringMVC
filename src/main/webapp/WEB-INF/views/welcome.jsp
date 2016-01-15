@@ -116,7 +116,7 @@ if (browserok) {
 	window.onload=initsnow
 }
 </script>
-<form:form method="GET" action="spring-task1/contacts/allcontacts">
-    <a target="_blank" href="spring-task1/contacts/allcontacts" style="font-size: 8pt; text-decoration: none">Click here to see all contacts</a>
+<form:form method="GET" action="finaltask/contacts/allcontacts">
+    <a target="_blank" href="finaltask/contacts/allcontacts" style="font-size: 8pt; text-decoration: none">Click here to see all contacts</a>
 </form:form>
 

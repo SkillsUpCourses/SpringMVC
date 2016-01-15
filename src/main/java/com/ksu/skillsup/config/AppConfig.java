@@ -7,13 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
-/**
- * Class {@link AppConfig
- *
- * @author RomanMosiienko
- * @version 1.0
- * @since 05.12.15
- */
+
 @Configuration
 @ComponentScan(basePackages = {
         "com.ksu.skillsup.config",

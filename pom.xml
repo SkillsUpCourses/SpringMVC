@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mosiienko.roman</groupId>
-    <artifactId>spring-task1</artifactId>
+    <groupId>com.ksu.skillsup</groupId>
+    <artifactId>finaltask</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
@@ -18,9 +18,7 @@
         <org.springframework.support.version>2.0.6</org.springframework.support.version>
         <org.aspectj.version>1.7.4</org.aspectj.version>
         <org.hibernate.version>3.6.8.Final</org.hibernate.version>
-        <jackson.version>2.5.3</jackson.version>
         <slf4j.version>1.7.2</slf4j.version>
-        <logback.version>1.0.9</logback.version>
         <org.freemarker.version>2.3.20</org.freemarker.version>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -45,6 +43,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
         <!-- Spring-WEB -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -56,7 +55,8 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
-        <!-- Persistence: Spring + Hibernate -->
+        
+        <!-- Spring data -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
@@ -77,42 +77,6 @@
                     <artifactId>servlet-api</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.0.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${org.hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>${org.hibernate.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>1.8.0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.2.2.Final</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -153,18 +117,54 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${org.hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${org.hibernate.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.2.Final</version>
+        </dependency>
+        
         <!-- Freemarker -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>${org.freemarker.version}</version>
         </dependency>
-        <!-- MySQL database driver -->
+        
+        <!-- MySQL JDBC Driver -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.9</version>
         </dependency>
+        
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -176,6 +176,7 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+        
         <!--Servlet-->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -212,4 +213,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>finaltask</name>
 </project>
